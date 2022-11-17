@@ -12,17 +12,26 @@ import model.Previsao;
 
 public class PrevisaoService {
   private HttpClient client = HttpClient.newBuilder().build();
+
+  public void armazenarPrevisaoNoHistoricoOracleCloud(Previsao p) throws Exception{
+    
+  }
+
+
   public void obterPrevisoesWeatherMap(
     String url,
     String appid,
-    String cidade
+    String cidade,
+    String units
   ) throws Exception {
     url = String.format(
-      "%s?q=%s&appid=%s",
+      "%s?q=%s&appid=%s&units=%s",
       url,
       cidade,
-      appid
+      appid,
+      units
     );
+
     //1. Construir um objeto que representa a requisição
     HttpRequest req = 
       HttpRequest.newBuilder()
@@ -39,7 +48,9 @@ public class PrevisaoService {
       double temp_min = main.getDouble("temp_min");
       double temp_max = main.getDouble("temp_max");
       String dt_txt = previsaoJSON.getString("dt_txt");
-      Previsao p = new Previsao(0, temp_min, temp_max, cidade, dt_txt);
+      Previsao p = 
+        new Previsao(0, temp_min, temp_max, cidade, dt_txt);
+        System.out.println(p);
     }
   }
 }

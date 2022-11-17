@@ -12,12 +12,15 @@ public class App {
                       properties.getProperty("WEATHER_MAP_BASEURL");
         final String WEATHER_MAP_APPID = 
                       properties.getProperty("WEATHER_MAP_APPID");
+        final String WEATHER_MAP_UNITS = 
+                      properties.getProperty("WEATHER_MAP_UNITS");
 
         PrevisaoService service = new PrevisaoService();
         
         service.obterPrevisoesWeatherMap(
           WEATHER_MAP_BASEURL, 
           WEATHER_MAP_APPID, 
-          "Itu");
+          "Itu",
+          WEATHER_MAP_UNITS);
     }
 }

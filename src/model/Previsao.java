@@ -1,15 +1,14 @@
 package model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
-@Getter
-@Setter
-public class Previsao {
-  private int codigo;
-  private double temperaturaMinima;
-  private double temperaturaMaxima;
-  private String data;
-  private String cidade;
-
+@RequiredArgsConstructor
+@ToString
+public class Previsao{
+  private final int codigo;
+  private final double temperaturaMinima;
+  private final double temperaturaMaxima;
+  private final String cidade;
+  private final String data;
 }
