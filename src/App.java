@@ -1,6 +1,7 @@
 import java.io.FileInputStream;
 import java.util.Properties;
 
+import model.Previsao;
 import service.PrevisaoService;
 
 public class App {
@@ -16,11 +17,17 @@ public class App {
                       properties.getProperty("WEATHER_MAP_UNITS");
 
         PrevisaoService service = new PrevisaoService();
+
+        Previsao p = new Previsao("Itu");
+        service.armazenarPrevisaoNoHistoricoOracleCloud(p);
+
+
         
-        service.obterPrevisoesWeatherMap(
-          WEATHER_MAP_BASEURL, 
-          WEATHER_MAP_APPID, 
-          "Itu",
-          WEATHER_MAP_UNITS);
+        // service.obterPrevisoesWeatherMap(
+        //   WEATHER_MAP_BASEURL, 
+        //   WEATHER_MAP_APPID, 
+        //   "Itu",
+        //   WEATHER_MAP_UNITS);   
+    
     }
 }

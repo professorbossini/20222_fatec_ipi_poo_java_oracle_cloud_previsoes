@@ -1,5 +1,10 @@
 package model;
 
+import java.beans.ConstructorProperties;
+
+import javax.management.ConstructorParameters;
+
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
@@ -9,6 +14,11 @@ public class Previsao{
   private final int codigo;
   private final double temperaturaMinima;
   private final double temperaturaMaxima;
+  @Getter
   private final String cidade;
   private final String data;
+
+  public Previsao(String cidade){
+    this(0, 0, 0, cidade, null);
+  }
 }
